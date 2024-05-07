@@ -10,6 +10,5 @@ Note that this _excludes_ the PEC change to allow producing charcoal from loggin
 
 Load order:
 
-- Industry Realism
-- Political & Economic Changes
-- Compatches (in any order)
+- Industry Realism and Political & Economic Changes in any order
+- Compatch
