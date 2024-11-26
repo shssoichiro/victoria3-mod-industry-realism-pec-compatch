@@ -3,7 +3,7 @@
 	city_type = farm
 	levels_per_mesh = 10
 	lens = infrastructure
-	texture = "gfx/interface/icons/building_icons/building_manor_houses.dds"
+	icon = "gfx/interface/icons/building_icons/building_manor_houses.dds"
 	production_method_groups = {
 		pmg_ownership_building_manor_house
 		pmg_additional_ownership_building_manor_house
@@ -63,7 +63,10 @@
 				value = 1
 				if = {
 					limit = {
-						has_law = law_type:law_agrarianism
+						OR = {
+							has_law = law_type:law_agrarianism
+							has_law = law_type:law_extraction_economy
+						}
 					}
 					multiply = 2
 				}
@@ -75,7 +78,10 @@
 				value = 1
 				if = {
 					limit = {
-						has_law = law_type:law_agrarianism
+						OR = {
+							has_law = law_type:law_agrarianism
+							has_law = law_type:law_extraction_economy
+						}
 					}
 					multiply = 2
 				}
@@ -87,7 +93,10 @@
 				value = 1
 				if = {
 					limit = {
-						has_law = law_type:law_agrarianism
+						OR = {
+							has_law = law_type:law_agrarianism
+							has_law = law_type:law_extraction_economy
+						}
 					}
 					multiply = 2
 				}
@@ -160,7 +169,7 @@ building_financial_district = {
 	city_type = city
 	levels_per_mesh = 10
 	lens = infrastructure
-	texture = "gfx/interface/icons/building_icons/building_financial_district.dds"
+	icon = "gfx/interface/icons/building_icons/building_financial_district.dds"
 	production_method_groups = {
 		pmg_ownership_building_financial_district
 	}
@@ -177,7 +186,7 @@ building_financial_district = {
 				}
 				else_if = {
 					limit = {
-						has_law = law_type:law_industry_banned
+						has_law = law_type:law_extraction_economy
 					}
 					multiply = 0.5
 				}
@@ -201,15 +210,15 @@ building_financial_district = {
 				}
 				else_if = {
 					limit = {
-						has_law = law_type:law_industry_banned
+						has_law = law_type:law_extraction_economy
 					}
-					multiply = 0.5
+					multiply = 0.25
 				}
 				else_if = {
 					limit = {
 						has_law = law_type:law_agrarianism
 					}
-					multiply = 0.75
+					multiply = 0.5
 				}
 			}
 		}
@@ -225,22 +234,22 @@ building_financial_district = {
 				}
 				else_if = {
 					limit = {
-						has_law = law_type:law_industry_banned
+						has_law = law_type:law_extraction_economy
 					}
-					multiply = 0.5
+					multiply = 0.25
 				}
 				else_if = {
 					limit = {
 						has_law = law_type:law_agrarianism
 					}
-					multiply = 0.75
+					multiply = 0.5
 				}
 			}
 		}
 		bg_pec_central_bank_score = {
 			group = "bg_pec_central_bank"
 			score = {
-				value = 0.05
+				value = 0.01
 			}
 		}
 		bg_pec_river_development_score = {
@@ -255,7 +264,7 @@ building_financial_district = {
 				}
 				else_if = {
 					limit = {
-						has_law = law_type:law_industry_banned
+						has_law = law_type:law_extraction_economy
 					}
 					multiply = 0.5
 				}
@@ -339,9 +348,9 @@ building_financial_district = {
 				}
 				else_if = {
 					limit = {
-						has_law = law_type:law_industry_banned
+						has_law = law_type:law_extraction_economy
 					}
-					multiply = 0.5
+					multiply = 1.25
 				}
 				else_if = {
 					limit = {
@@ -361,6 +370,12 @@ building_financial_district = {
 					}
 					multiply = 0.5
 				}
+				else_if = {
+					limit = {
+						has_law = law_type:law_extraction_economy
+					}
+					multiply = 1.25
+				}
 			}
 		}
 		bg_hardwood_logging_score = {
@@ -373,6 +388,12 @@ building_financial_district = {
 					}
 					multiply = 0.5
 				}
+				else_if = {
+					limit = {
+						has_law = law_type:law_extraction_economy
+					}
+					multiply = 1.25
+				}
 			}
 		}
 		bg_rubber_score = {
@@ -384,6 +405,12 @@ building_financial_district = {
 						has_law = law_type:law_traditionalism
 					}
 					multiply = 0.5
+				}
+				else_if = {
+					limit = {
+						has_law = law_type:law_extraction_economy
+					}
+					multiply = 2
 				}
 			}
 		}
@@ -423,9 +450,9 @@ building_financial_district = {
 				}
 				else_if = {
 					limit = {
-						has_law = law_type:law_industry_banned
+						has_law = law_type:law_extraction_economy
 					}
-					multiply = 0.5
+					multiply = 1.25
 				}
 				else_if = {
 					limit = {
@@ -447,12 +474,6 @@ building_financial_district = {
 				}
 				else_if = {
 					limit = {
-						has_law = law_type:law_industry_banned
-					}
-					multiply = 0.5
-				}
-				else_if = {
-					limit = {
 						has_law = law_type:law_agrarianism
 					}
 					multiply = 0.75
@@ -468,12 +489,6 @@ building_financial_district = {
 						has_law = law_type:law_traditionalism
 					}
 					multiply = 0.1
-				}
-				else_if = {
-					limit = {
-						has_law = law_type:law_industry_banned
-					}
-					multiply = 0.5
 				}
 				else_if = {
 					limit = {
