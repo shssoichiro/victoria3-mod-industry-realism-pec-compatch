@@ -21,7 +21,7 @@
 	}
 	modifier = {
 		country_private_construction_allocation_mult = 0.5
-		state_shopkeepers_investment_pool_efficiency_mult = 0.5
+		state_shopkeepers_investment_pool_efficiency_mult = 0.25
 		country_production_tech_research_speed_mult = -0.1
 		country_shopkeepers_pol_str_mult = 0.2
 		building_nationalization_investment_return_add = 0.25
@@ -31,6 +31,7 @@
 		building_group_bg_pec_tertiary_sector_allowed_collectivization_add = 0.5
 		building_group_bg_light_industry_allowed_collectivization_add = 0.5
 		building_group_bg_heavy_industry_allowed_collectivization_add = 0.25
+		country_free_charters_add = 1
 	}
 	ai_enact_weight_modifier = {
 		#Petitions
@@ -111,21 +112,9 @@ law_extraction_economy = {
 				}
 				if = {
 					limit = {
-						has_building = building_automobile_factories
+						has_building = building_automotive_industry
 					}
-					remove_building = building_automobile_factories
-				}
-				if = {
-					limit = {
-						has_building = building_war_machine_industry
-					}
-					remove_building = building_war_machine_industry
-				}
-				if = {
-					limit = {
-						has_building = building_aircraft_industry
-					}
-					remove_building = building_aircraft_industry
+					remove_building = building_automotive_industry
 				}
 				if = {
 					limit = {

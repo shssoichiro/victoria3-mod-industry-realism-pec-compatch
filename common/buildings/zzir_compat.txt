@@ -1,41 +1,4 @@
-﻿building_government_administration = {
-	building_group = bg_bureaucracy
-	city_type = city
-	levels_per_mesh = 10
-	unlocking_technologies = {
-		tech_bureaucracy
-	}
-	should_auto_expand = {
-		occupancy >= 0.8
-		building_has_goods_shortage = no
-		OR = {
-			state.tax_capacity < state.tax_capacity_usage
-			AND = {
-				owner = {
-					bureaucracy < -10
-				}
-				state.tax_capacity < {
-					add = state.tax_capacity_usage
-					add = 10
-				}
-			}
-		}
-		NOT = {
-			is_under_construction = yes
-		}
-	}
-	production_method_groups = {
-		pmg_base_building_government_administration
-		pec_pmg_government_administration_healthcare
-		pmg_government_administration_bureaucrat_professionalism
-		pmg_government_administration_religious_administration
-	}
-	icon = "gfx/interface/icons/building_icons/building_government_administration.dds"
-	required_construction = construction_cost_very_low
-	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
-}
-
-building_synthetics_plants = {
+﻿building_synthetics_plants = {
 	building_group = bg_heavy_industry
 	icon = "gfx/interface/icons/building_icons/synthetics_plants.dds"
 	city_type = city
@@ -47,6 +10,15 @@ building_synthetics_plants = {
 		pmg_synthetic_dyes
 	}
 	required_construction = construction_cost_very_high
+	possible = {
+		owner = {
+			NOT = {
+				OR = {
+					has_law = law_type:law_extraction_economy
+				}
+			}
+		}
+	}
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_heavy_industry.dds"
 }
@@ -63,30 +35,22 @@ building_rayon_plants = {
 		pmg_synthetic_silk
 	}
 	required_construction = construction_cost_very_high
+	possible = {
+		owner = {
+			NOT = {
+				OR = {
+					has_law = law_type:law_extraction_economy
+				}
+			}
+		}
+	}
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_heavy_industry.dds"
 }
 
-building_motor_industry = {
+building_automotive_industry = {
 	building_group = bg_heavy_industry
-	icon = "gfx/interface/icons/building_icons/motor_industry.dds"
-	city_type = city
-	levels_per_mesh = 5
-	unlocking_technologies = {
-		atmospheric_engine
-	}
-	production_method_groups = {
-		pmg_base_building_motor_industry
-		pmg_automation_building_motor_industry
-	}
-	required_construction = construction_cost_very_high
-	ownership_type = self
-	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_heavy_industry.dds"
-}
-
-building_automobile_factories = {
-	building_group = bg_heavy_industry
-	icon = "gfx/interface/icons/building_icons/automobile_plants.dds"
+	icon = "gfx/interface/icons/building_icons/vehicles_industry.dds"
 	city_type = city
 	levels_per_mesh = 5
 	unlocking_technologies = {
@@ -94,16 +58,25 @@ building_automobile_factories = {
 	}
 	production_method_groups = {
 		pmg_automobile_production
-		pmg_automation_building_automobile_factories
+		pmg_automation_building_automotive_industry
 	}
 	required_construction = construction_cost_very_high
+	possible = {
+		owner = {
+			NOT = {
+				OR = {
+					has_law = law_type:law_extraction_economy
+				}
+			}
+		}
+	}
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_heavy_industry.dds"
 }
 
 building_war_machine_industry = {
 	building_group = bg_heavy_industry
-	icon = "gfx/interface/icons/building_icons/vehicles_industry.dds"
+	icon = "gfx/interface/icons/building_icons/war_machines_industry.dds"
 	city_type = city
 	levels_per_mesh = 5
 	ai_nationalization_desire = 0.5	# AI generally does not want to privatize military goods industries
@@ -112,15 +85,25 @@ building_war_machine_industry = {
 	}
 	production_method_groups = {
 		pmg_tanks
+		pmg_automation_building_war_machine_industry
 	}
 	required_construction = construction_cost_very_high
+	possible = {
+		owner = {
+			NOT = {
+				OR = {
+					has_law = law_type:law_extraction_economy
+				}
+			}
+		}
+	}
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_heavy_industry.dds"
 }
 
 building_aircraft_industry = {
 	building_group = bg_heavy_industry
-	icon = "gfx/interface/icons/building_icons/vehicles_industry.dds"
+	icon = "gfx/interface/icons/building_icons/aircraft_industry.dds"
 	city_type = city
 	levels_per_mesh = 5
 	ai_nationalization_desire = 0.5	# AI generally does not want to privatize military goods industries
@@ -129,8 +112,18 @@ building_aircraft_industry = {
 	}
 	production_method_groups = {
 		pmg_aeroplanes
+		pmg_automation_building_aircraft_industry
 	}
 	required_construction = construction_cost_very_high
+	possible = {
+		owner = {
+			NOT = {
+				OR = {
+					has_law = law_type:law_extraction_economy
+				}
+			}
+		}
+	}
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_heavy_industry.dds"
 }
@@ -147,6 +140,15 @@ building_electrics_industry = {
 		pmg_telephones_category
 	}
 	required_construction = construction_cost_very_high
+	possible = {
+		owner = {
+			NOT = {
+				OR = {
+					has_law = law_type:law_extraction_economy
+				}
+			}
+		}
+	}
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_heavy_industry.dds"
 }
@@ -163,6 +165,15 @@ building_radio_industry = {
 		pmg_radios_category
 	}
 	required_construction = construction_cost_very_high
+	possible = {
+		owner = {
+			NOT = {
+				OR = {
+					has_law = law_type:law_extraction_economy
+				}
+			}
+		}
+	}
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_heavy_industry.dds"
 }
@@ -181,6 +192,15 @@ building_synthetic_rubber_plants = {
 		pmg_synthetic_rubber
 	}
 	required_construction = construction_cost_very_high
+	possible = {
+		owner = {
+			NOT = {
+				OR = {
+					has_law = law_type:law_extraction_economy
+				}
+			}
+		}
+	}
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_heavy_industry.dds"
 }
@@ -199,6 +219,68 @@ building_synthetic_fuel_plants = {
 		pmg_synthetic_fuel
 	}
 	required_construction = construction_cost_very_high
+	possible = {
+		owner = {
+			NOT = {
+				OR = {
+					has_law = law_type:law_extraction_economy
+				}
+			}
+		}
+	}
 	ownership_type = self
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_heavy_industry.dds"
+}
+
+building_power_plant = {
+	building_group = bg_power
+	icon = "gfx/interface/icons/building_icons/power_plant.dds"
+	levels_per_mesh = 5
+	city_type = city
+	unlocking_technologies = {
+		electrical_generation
+	}
+	production_method_groups = {
+		pmg_base_building_power_plant
+	}
+	required_construction = construction_cost_very_high
+	ai_value = {
+		value = 1000
+		# Need 1 level of Power Plants everywhere as its a local good and a prerequisite to enabling electricity PMs to begin with
+		if = {
+			limit = {
+				NOR = {
+					has_building = building_power_plant
+					any_scope_building = {
+						is_building_type = building_power_plant
+						is_under_construction = yes
+					}
+				}
+			}
+			add = 4000
+		}
+	}
+	should_auto_expand = {
+		occupancy >= 0.95
+		building_has_goods_shortage = no
+		OR = {
+			# subsidized OR profitable
+			is_subsidized = yes
+			AND = {
+				cash_reserves_ratio > 0.5
+				weekly_profit > 0
+			}
+		}
+		state = {
+			sg:electricity = {
+				state_goods_pricier > 0.33
+			}
+		}
+		# don't build if already is building
+		NOT = {
+			is_under_construction = yes
+		}
+	}
+	ownership_type = self
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
 }
