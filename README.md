@@ -2,7 +2,7 @@
 
 ![Preview](thumbnail.png)
 
-**Tested With V3 Version: 1.9.2**
+**Tested With V3 Version: 1.9.7**
 
 Compatibility patch between Industry Realism and Political & Economic Changes.
 
