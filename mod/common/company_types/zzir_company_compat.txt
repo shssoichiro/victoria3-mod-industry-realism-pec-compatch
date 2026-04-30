@@ -19,7 +19,7 @@ REPLACE:company_guinness = {
 		always = yes
 	}
 	potential = {
-		has_interest_marker_in_region = region_north_sea_coast
+		has_interest_marker_in_region = sr:region_western_europe
 	}
 	attainable = {
 		hidden_trigger = {

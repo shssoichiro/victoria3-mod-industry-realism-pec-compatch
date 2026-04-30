@@ -20,12 +20,23 @@ REPLACE:law_industry_banned = {
 	unlocking_technologies = {
 		corporatism
 	}
+	can_enact = {
+		OR = {
+			NOT = {
+				has_law = law_type:law_extraction_economy
+			}
+			is_subject = no
+			AND = {
+				is_subject = yes
+				liberty_desire >= 100
+			}
+		}
+	}
 	modifier = {
 		building_company_worker_dividends_add = 0.25
 		country_private_construction_allocation_mult = 0.5
 		state_shopkeepers_investment_pool_efficiency_mult = 0.25
-		country_production_tech_research_speed_mult = -0.1
-		country_shopkeepers_pol_str_mult = 0.2
+		country_shopkeepers_pol_str_mult = 0.25
 		building_nationalization_investment_return_add = 0.25
 		country_government_dividends_reinvestment_add = 0.5
 		country_government_dividends_efficiency_add = 0.25
@@ -33,8 +44,11 @@ REPLACE:law_industry_banned = {
 		building_group_bg_pec_tertiary_sector_allowed_collectivization_add = 0.5
 		building_group_bg_light_industry_allowed_collectivization_add = 0.5
 		building_group_bg_heavy_industry_allowed_collectivization_add = 0.25
+		building_group_bg_extraction_allowed_collectivization_add = 0.25
 		country_free_charters_add = 1
-		building_self_investment_chance_add = 0.1
+		building_self_investment_chance_add = 0.25
+		country_enactment_success_chance_law_corporate_state_add = 0.1
+		country_enactment_success_chance_law_corporatized_unions_add = 0.1
 	}
 	ai_enact_weight_modifier = {
 		#Petitions
@@ -154,10 +168,16 @@ REPLACE:law_extraction_economy = {
 		}
 	}
 	modifier = {
+		state_trade_advantage_mult = -0.75
+		state_trade_capacity_mult = -0.75
+		state_trade_quantity_mult = -0.75
 		building_group_bg_agriculture_throughput_add = 0.1
 		building_group_bg_plantations_throughput_add = 0.1
 		building_group_bg_extraction_throughput_add = 0.1
+		building_group_bg_pec_tertiary_sector_throughput_add = -0.33
+		building_group_bg_manufacturing_throughput_add = -0.33
 		state_shopkeepers_investment_pool_efficiency_mult = -0.5
+		state_bureaucrats_investment_pool_efficiency_mult = -0.5
 		state_capitalists_investment_pool_efficiency_mult = -0.25
 		state_farmers_investment_pool_efficiency_mult = -0.75
 		state_clergymen_investment_pool_efficiency_mult = -0.75
@@ -166,6 +186,19 @@ REPLACE:law_extraction_economy = {
 		building_nationalization_investment_return_add = 0.5
 		country_disable_nationalization_without_compensation_bool = yes
 		country_economic_dependence_on_overlord_add = 0.5
+		country_pec_financial_districts_buy_tertiary_sector_likelihood = -0.95
+		country_pec_financial_districts_buy_manufacturing_likelihood = -0.95
+		country_financial_districts_buy_farms_likelihood = 0.5
+		country_pec_financial_districts_buy_extraction_likelihood = 0.5
+		country_pec_financial_districts_buy_rubber_likelihood = 1
+		country_pec_financial_districts_buy_oil_likelihood = 1
+		building_minimum_wage_mult = -0.25
+		building_group_bg_light_industry_construction_efficiency_add = -0.25
+		building_group_bg_heavy_industry_construction_efficiency_add = -0.5
+		building_group_bg_pec_tertiary_sector_construction_efficiency_add = -0.5
+		building_group_bg_extraction_construction_efficiency_add = 0.1
+		building_group_bg_plantations_construction_efficiency_add = 0.1
+		country_pec_fake_add_currency_laws = -1
 	}
 	ai_will_do = {
 		always = no
